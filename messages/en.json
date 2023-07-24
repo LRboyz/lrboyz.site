@@ -1,0 +1,32 @@
+{
+  "Home": {
+    "Hello": "Hello World!"
+  },
+  "NavMenu": {
+    "Home": "Home",
+    "About": "About",
+    "Coding": "Coding",
+    "Life": "Life",
+    "Photography": "Photography",
+    "Sponsor": "Sponsor"
+  },
+  "Themes": {
+    "Placeholder": "Select a theme",
+    "Light": "Light",
+    "Dark": "Dark",
+    "System": "System"
+  },
+  "Languages": {
+    "Placeholder": "Select a language",
+    "en": "English",
+    "zh-CN": "简体中文"
+  },
+  "Root": {
+    "Metadata": {
+      "Title": "Zolplay",
+      "TitleTemplate": "%s / Zolplay",
+      "Description": "Zolplay - the superheroes of software development! Our superpowers are creating next-gen applications or platforms for businesses of all sizes.",
+      "Keywords": "Zolplay,Software development,Web applications,Mobile applications,Custom software solutions,High-quality products,Passionate developers,Skilled designers,Project management,Digital experiences,Innovative solutions,Software craftsmanship,Exceptional digital presence,Software superhero,Digital transformation,Custom software development"
+    }
+  }
+}

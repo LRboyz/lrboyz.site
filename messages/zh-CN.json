@@ -1,0 +1,32 @@
+{
+  "Home": {
+    "Hello": "你好， 世界!"
+  },
+  "NavMenu": {
+    "Home": "主 页",
+    "About": "关于我",
+    "Coding": "编 码",
+    "Life": "生 活",
+    "Photography": "摄 影",
+    "Sponsor": "赞 助"
+  },
+  "Themes": {
+    "Placeholder": "选择颜色主题",
+    "Light": "浅色",
+    "Dark": "深色",
+    "System": "跟随系统"
+  },
+  "Languages": {
+    "Placeholder": "选择语言",
+    "en": "English",
+    "zh-CN": "简体中文"
+  },
+  "Root": {
+    "Metadata": {
+      "Title": "佐玩",
+      "TitleTemplate": "%s / 佐玩",
+      "Description": "佐玩是一家有非同寻常的软件开发公司，我们的超能力是为各种规模的企业打造次世代的平台与应用。",
+      "Keywords": "佐玩,Zolplay,软件开发,Web应用程序,移动应用程序,定制软件解决方案,高质量产品,热情的开发人员,熟练的设计师,项目管理,数字体验,创新解决方案,软件工艺,软件超级英雄,数字转型,定制软件开发"
+    }
+  }
+}
