@@ -110,10 +110,13 @@ export default async function RootLayout({
   children,
   params,
 }: RootLayoutProps) {
-  const messages = await getMessages(params);
-  if (!messages) {
+  let message;
+  try {
+    message = (await import(`../../messages/${params.locale}`)).default;
+  } catch (error) {
     notFound();
   }
+
   return (
     <html
       lang={params.locale}
@@ -127,7 +130,7 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <IntlProvider locale={params.locale} messages={messages}>
+          <IntlProvider locale={params.locale} messages={message}>
             <Background />
             <Header />
 

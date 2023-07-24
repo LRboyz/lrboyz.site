@@ -11,13 +11,7 @@ import React, { ComponentProps } from 'react';
 import { LocaleSelector } from './LocaleSelector';
 import { ThemeSelector } from './ThemeSelector';
 import { BsGithub, BsTree, BsTwitter, BsYoutube } from 'react-icons/bs';
-import {
-  TbBriefcase,
-  TbCarouselHorizontal,
-  TbMail,
-  TbMailbox,
-  TbPlanet,
-} from 'react-icons/tb';
+import { TbMail, TbMailbox, TbPlanet } from 'react-icons/tb';
 import Link from 'next/link';
 import {
   CodeIcon,
