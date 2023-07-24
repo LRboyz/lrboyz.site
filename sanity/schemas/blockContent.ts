@@ -51,14 +51,14 @@ export default defineType({
         },
       ],
     }),
-    defineArrayMember({
-      type: 'code',
-      name: 'codeBlock',
-      title: 'Code Block',
-      options: {
-        withFilename: true,
-      },
-    }),
+    // defineArrayMember({
+    //   type: 'code',
+    //   name: 'codeBlock',
+    //   title: 'Code Block',
+    //   options: {
+    //     withFilename: true,
+    //   },
+    // }),
     // defineArrayMember({
     //   type: 'object',
     //   name: 'tweet',

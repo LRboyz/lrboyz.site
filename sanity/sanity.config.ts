@@ -2,25 +2,30 @@
  * This configuration is used to for the Sanity Studio that’s mounted on the `/app/studio/[[...index]]/page.tsx` route
  */
 
-import { codeInput } from '@sanity/code-input';
+// import { codeInput } from '@sanity/code-input';
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
-import { media } from 'sanity-plugin-media';
+// import { media } from 'sanity-plugin-media';
 
 // import { settingsPlugin, settingsStructure } from '~/sanity/plugins/settings';
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
 // import settingsType from './sanity/schemas/settings';
-import { schema } from './schema';
+// import { schema } from './schema';
+import post, { readingTimeType } from './schemas/post';
+import category from './schemas/category';
+import blockContent from './schemas/blockContent';
 
 export default defineConfig({
   basePath: '/studio',
   projectId,
   dataset,
   // Add and edit the content schema in the './sanity/schema' folder
-  schema,
+  schema: {
+    types: [readingTimeType, post, category, blockContent],
+  },
   plugins: [
     deskTool({
       //   structure: settingsStructure(settingsType),
@@ -31,7 +36,7 @@ export default defineConfig({
     // settingsPlugin({
     //   type: settingsType.name,
     // }),
-    media(),
-    codeInput(),
+    // media(),
+    // codeInput(),
   ],
 });

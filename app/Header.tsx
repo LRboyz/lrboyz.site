@@ -1,6 +1,4 @@
-import { LocaleSelector } from '~/components/widget/LocaleSelector';
 import Logo from '~/components/widget/Logo';
-import { ThemeSelector } from '~/components/widget/ThemeSelector';
 
 export default function Header() {
   return (
