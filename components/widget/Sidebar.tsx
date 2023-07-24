@@ -46,11 +46,11 @@ const social = [
   //   url: 'https://youtube.com/@zolplay',
   //   icon: BsYoutube,
   // },
-  {
-    name: 'Email',
-    url: 'lr603552916@gmail.com',
-    icon: TbMail,
-  },
+  // {
+  //   name: 'Email',
+  //   url: 'lr603552916@gmail.com',
+  //   icon: TbMail,
+  // },
 ];
 
 export function Sidebar({ className }: { className?: string }) {
