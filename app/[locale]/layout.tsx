@@ -10,6 +10,7 @@ import Header from '../../components/widget/Header';
 import { AnalyticsWrapper } from '../../components/widget/Analytics';
 import { Nav } from '~/components/widget/Nav';
 import Sidebar from '~/components/widget/Sidebar';
+import { i18n } from '~/i18n';
 
 const fontSansEn = Manrope({
   weight: ['400', '500', '700'],
@@ -19,9 +20,9 @@ const fontSansEn = Manrope({
   fallback: ['ui-sans-serif'],
 });
 
-export function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'zh-CN' }]; // i18n.locales.map((locale) => ({ locale }));
-}
+// export function generateStaticParams() {
+//   return i18n.locales.map((locale) => ({ locale }));
+// }
 
 export async function generateMetadata({
   params,
