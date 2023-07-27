@@ -4,26 +4,26 @@ import { Select } from '~/components/ui/Select';
 import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 import React from 'react';
-import { CogIcon, MoonIcon, SunIcon } from '@heroicons/react/outline';
-// import { TbCircleHalf2, TbMoon, TbSun } from 'react-icons/tb'
+import { TbCircleHalf2, TbMoon, TbSun } from 'react-icons/tb'
+
 
 const themes = [
   {
     label: 'Light',
     value: 'light',
-    icon: SunIcon,
+    icon: TbSun,
     // icon: TbSun,
   },
   {
     label: 'Dark',
     value: 'dark',
-    icon: MoonIcon,
+    icon: TbMoon,
     // icon: TbMoon,
   },
   {
     label: 'System',
     value: 'system',
-    icon: CogIcon,
+    icon: TbCircleHalf2,
     // icon: TbCircleHalf2,
   },
 ];

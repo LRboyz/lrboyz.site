@@ -1,12 +1,17 @@
-import { i18n } from '~/i18n';
+// import { i18n } from '~/i18n';
 import createIntlMiddleware from 'next-intl/middleware';
 
 export default createIntlMiddleware({
-  // A list of all locales that are supported
-  locales: i18n.locales,
-  // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
+  locales: ['en', 'zh-CN'],
   defaultLocale: 'en',
 });
+
+// export default createIntlMiddleware({
+//   // A list of all locales that are supported
+//   locales: i18n.locales,
+//   // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
+//   defaultLocale: 'en',
+// });
 
 export const config = {
   // Skip all paths that aren't pages that you'd like to internationalize.

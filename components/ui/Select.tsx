@@ -1,9 +1,9 @@
 'use client';
 
-import { CheckIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { clsx } from 'clsx';
 import React from 'react';
+import { TbCheck, TbChevronDown } from 'react-icons/tb';
 
 const Root = SelectPrimitive.Root;
 
@@ -25,7 +25,7 @@ const Trigger = React.forwardRef<
     {...props}
   >
     {children}
-    <ChevronDownIcon className="h-4 w-4 opacity-50" />
+    <TbChevronDown className="h-4 w-4 opacity-50" />
   </SelectPrimitive.Trigger>
 ));
 Trigger.displayName = SelectPrimitive.Trigger.displayName;
@@ -81,7 +81,7 @@ const Item = React.forwardRef<
   >
     <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
       <SelectPrimitive.ItemIndicator>
-        <CheckIcon className="h-4 w-4" />
+        <TbCheck className="h-4 w-4" />
       </SelectPrimitive.ItemIndicator>
     </span>
 

@@ -3,8 +3,8 @@
 import { Select } from '~/components/ui/Select';
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname } from 'next-intl/client';
-import { useRouter } from 'next/navigation';
-import React from 'react';
+import { useRouter } from 'next-intl/client';
+import React, { useTransition } from 'react';
 
 const languages = [
   {
@@ -21,14 +21,23 @@ const languages = [
 export function LocaleSelector() {
   const locale = useLocale();
   const [mounted, setMounted] = React.useState(false);
+  const [, startTransition] = useTransition();
   const router = useRouter();
   const pathname = usePathname();
-  const onChange = React.useCallback(
-    (locale: string) => {
-      router.push(`${locale}${pathname}`);
-    },
-    [router, pathname],
-  );
+
+  const onChange = (locale: string) => {
+    console.log(locale, 'locale');
+    router.replace(pathname, { locale });
+  };
+  // const onChange = React.useCallback(
+  //   (locale: string) => {
+  //     console.log(`******** ${locale} ********`);
+  //     startTransition(() => {
+  //       router.replace(pathname, { locale });
+  //     });
+  //   },
+  //   [router, pathname],
+  // );
 
   React.useEffect(() => setMounted(true), []);
 
