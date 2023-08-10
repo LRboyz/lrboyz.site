@@ -1,12 +1,13 @@
-import { defineField, defineType } from 'sanity';
-import { z } from 'zod';
-import { PencilSwooshIcon } from '~/assets/icons/PencliSwooshIcon';
-import { readingTimeType } from './types/ReadingTimeInput';
+import { defineField, defineType } from 'sanity'
+import { z } from 'zod'
+import { PencilSwooshIcon } from '~/components/icons/PencliSwooshIcon'
+import { readingTimeType } from './types/ReadingTimeInput'
 
 export const Post = z.object({
   _id: z.string(),
   title: z.string(),
   slug: z.string(),
+  total: z.number().optional(),
   mainImage: z.object({
     _ref: z.string(),
     asset: z.object({
@@ -15,23 +16,25 @@ export const Post = z.object({
       dominant: z
         .object({
           background: z.string(),
-          foreground: z.string(),
+          foreground: z.string()
         })
-        .optional(),
-    }),
+        .optional()
+    })
   }),
   publishedAt: z.string(),
   description: z.string(),
   categories: z.array(z.string()),
   body: z.any(),
   readingTime: z.number(),
-  mood: z.enum(['happy', 'sad', 'neutral']),
-});
-export type Post = z.infer<typeof Post>;
+  mood: z.enum(['happy', 'sad', 'neutral'])
+})
+
+export type Post = z.infer<typeof Post>
+
 export type PostDetail = Post & {
-  headings: any[];
-  related?: Post[];
-};
+  headings: any[]
+  related?: Post[]
+}
 
 export default defineType({
   name: 'post',
@@ -43,7 +46,7 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required()
     }),
     defineField({
       name: 'slug',
@@ -51,21 +54,21 @@ export default defineType({
       type: 'slug',
       options: {
         source: 'title',
-        maxLength: 96,
+        maxLength: 96
       },
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required()
     }),
     defineField({
       name: 'categories',
       title: 'Categories',
       type: 'array',
-      of: [{ type: 'reference', to: { type: 'category' } }],
+      of: [{ type: 'reference', to: { type: 'category' } }]
     }),
     defineField({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required()
     }),
     defineField({
       name: 'mainImage',
@@ -73,28 +76,28 @@ export default defineType({
       type: 'image',
       description: 'This image will be used for the preview (1200 x 675px)',
       options: {
-        hotspot: true,
+        hotspot: true
       },
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required()
     }),
     defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
       rows: 3,
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required()
     }),
     defineField({
       name: 'body',
       title: 'Body',
-      type: 'blockContent',
+      type: 'blockContent'
     }),
     defineField({
       name: 'readingTime',
       type: readingTimeType.name,
       options: {
-        source: 'body',
-      },
+        source: 'body'
+      }
     }),
     defineField({
       name: 'mood',
@@ -104,23 +107,23 @@ export default defineType({
         list: [
           { title: 'Neutral', value: 'neutral' },
           { title: 'Happy', value: 'happy' },
-          { title: 'Sad', value: 'sad' },
+          { title: 'Sad', value: 'sad' }
         ],
-        layout: 'radio',
-      },
-    }),
+        layout: 'radio'
+      }
+    })
   ],
 
   initialValue: () => ({
     publishedAt: new Date().toISOString(),
-    mood: 'neutral',
+    mood: 'neutral'
   }),
 
   preview: {
     select: {
       title: 'title',
       author: 'slug',
-      media: 'mainImage',
-    },
-  },
-});
+      media: 'mainImage'
+    }
+  }
+})

@@ -1,6 +1,5 @@
 import { defineField, defineType } from 'sanity'
-import { ScriptIcon } from '~/assets/icons/ScriptIcon'
-
+import { ScriptIcon } from '~/components/icons/ScriptIcon'
 
 export default defineType({
   name: 'category',
@@ -11,20 +10,20 @@ export default defineType({
     defineField({
       name: 'title',
       title: 'Title',
-      type: 'string',
+      type: 'string'
     }),
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'title',
-      },
+        source: 'title'
+      }
     }),
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'text',
-    }),
-  ],
+      type: 'text'
+    })
+  ]
 })

@@ -1,3 +1,3 @@
 export default function CodingPage() {
-  return <>This is Coding Page</>;
+  return <>This is Coding Page</>
 }

@@ -1,9 +1,53 @@
 {
+  "Root": {
+    "Metadata": {
+      "Title": "lrboiy.site",
+      "TitleTemplate": "%s / LRboyz"
+    }
+  },
   "Home": {
-    "Hello": "Hello World!"
+    "Hello": "Hello World!",
+    "title": {
+      "template": [
+        {
+          "type": "h1",
+          "text": "Hi, I'm ",
+          "class": "font-light text-4xl"
+        },
+        {
+          "type": "h1",
+          "text": "Innei",
+          "class": "font-medium mx-2 text-4xl"
+        },
+        {
+          "type": "h1",
+          "text": "👋。",
+          "class": "font-light text-4xl"
+        },
+        {
+          "type": "br"
+        },
+        {
+          "type": "h1",
+          "text": "A NodeJS Full Stack ",
+          "class": "font-light text-4xl"
+        },
+        {
+          "type": "code",
+          "text": "<Developer />",
+          "class": "font-medium mx-2 text-3xl rounded p-1 bg-gray-200 dark:bg-gray-800/0 hover:dark:bg-gray-800/100 bg-opacity-0 hover:bg-opacity-100 transition-background duration-200"
+        },
+        {
+          "type": "span",
+          "class": "inline-block w-[1px] h-8 -bottom-2 relative bg-gray-800/80 dark:bg-gray-200/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200 group-hover:animation-blink"
+        }
+      ]
+    },
+    "description": "An independent developer coding with love."
   },
   "NavMenu": {
     "Home": "Home",
+    "Posts": "Posts",
     "About": "About",
     "Coding": "Coding",
     "Life": "Life",
@@ -20,13 +64,5 @@
     "Placeholder": "Select a language",
     "en": "English",
     "zh-CN": "简体中文"
-  },
-  "Root": {
-    "Metadata": {
-      "Title": "Zolplay",
-      "TitleTemplate": "%s / Zolplay",
-      "Description": "Zolplay - the superheroes of software development! Our superpowers are creating next-gen applications or platforms for businesses of all sizes.",
-      "Keywords": "Zolplay,Software development,Web applications,Mobile applications,Custom software solutions,High-quality products,Passionate developers,Skilled designers,Project management,Digital experiences,Innovative solutions,Software craftsmanship,Exceptional digital presence,Software superhero,Digital transformation,Custom software development"
-    }
   }
 }

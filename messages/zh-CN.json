@@ -1,14 +1,58 @@
 {
+  "Root": {
+    "Metadata": {
+      "Title": "lrboiy.site",
+      "TitleTemplate": "%s / LRboyz"
+    }
+  },
   "Home": {
-    "Hello": "你好， 世界!"
+    "Hello": "你好， 世界!",
+    "title": {
+      "template": [
+        {
+          "type": "h1",
+          "text": "Hi, I'm ",
+          "class": "font-light text-4xl"
+        },
+        {
+          "type": "h1",
+          "text": "Innei",
+          "class": "font-medium mx-2 text-4xl"
+        },
+        {
+          "type": "h1",
+          "text": "👋。",
+          "class": "font-light text-4xl"
+        },
+        {
+          "type": "br"
+        },
+        {
+          "type": "h1",
+          "text": "A NodeJS Full Stack ",
+          "class": "font-light text-4xl"
+        },
+        {
+          "type": "code",
+          "text": "<Developer />",
+          "class": "font-medium mx-2 text-3xl rounded p-1 bg-gray-200 dark:bg-gray-800/0 hover:dark:bg-gray-800/100 bg-opacity-0 hover:bg-opacity-100 transition-background duration-200"
+        },
+        {
+          "type": "span",
+          "class": "inline-block w-[1px] h-8 -bottom-2 relative bg-gray-800/80 dark:bg-gray-200/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200 group-hover:animation-blink"
+        }
+      ]
+    },
+    "description": "An independent developer coding with love."
   },
   "NavMenu": {
-    "Home": "主 页",
+    "Home": "主页",
+    "Posts": "文章",
     "About": "关于我",
-    "Coding": "编 码",
-    "Life": "生 活",
-    "Photography": "摄 影",
-    "Sponsor": "赞 助"
+    "Coding": "编码",
+    "Life": "生活",
+    "Photography": "图库",
+    "Sponsor": "赞助"
   },
   "Themes": {
     "Placeholder": "选择颜色主题",
@@ -20,13 +64,5 @@
     "Placeholder": "选择语言",
     "en": "English",
     "zh-CN": "简体中文"
-  },
-  "Root": {
-    "Metadata": {
-      "Title": "佐玩",
-      "TitleTemplate": "%s / 佐玩",
-      "Description": "佐玩是一家有非同寻常的软件开发公司，我们的超能力是为各种规模的企业打造次世代的平台与应用。",
-      "Keywords": "佐玩,Zolplay,软件开发,Web应用程序,移动应用程序,定制软件解决方案,高质量产品,热情的开发人员,熟练的设计师,项目管理,数字体验,创新解决方案,软件工艺,软件超级英雄,数字转型,定制软件开发"
-    }
   }
 }

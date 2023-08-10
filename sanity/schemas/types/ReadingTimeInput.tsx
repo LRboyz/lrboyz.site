@@ -8,6 +8,6 @@ export const readingTimeType = defineType({
   description: '给定内容的估计阅读时间（分钟）',
   type: 'number',
   components: {
-    input: ReadingTimeInput,
-  },
+    input: ReadingTimeInput
+  }
 })

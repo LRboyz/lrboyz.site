@@ -1,4 +1,4 @@
-import { defineArrayMember, defineType } from 'sanity';
+import { defineArrayMember, defineType } from 'sanity'
 
 // import { Tweet } from '~/sanity/components/Tweet'
 
@@ -31,11 +31,11 @@ export default defineType({
         { title: 'H2', value: 'h2' },
         { title: 'H3', value: 'h3' },
         { title: 'H4', value: 'h4' },
-        { title: 'Quote', value: 'blockquote' },
+        { title: 'Quote', value: 'blockquote' }
       ],
       lists: [
         { title: 'Bullet', value: 'bullet' },
-        { title: 'Numbered', value: 'number' },
+        { title: 'Numbered', value: 'number' }
       ],
       // Marks let you mark up inline text in the Portable Text Editor
       marks: {
@@ -46,7 +46,7 @@ export default defineType({
           { title: 'Emphasis', value: 'em' },
           { title: 'Underline', value: 'underline' },
           { title: 'Strike', value: 'strike-through' },
-          { title: 'Code', value: 'code' },
+          { title: 'Code', value: 'code' }
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -58,12 +58,12 @@ export default defineType({
               {
                 title: 'URL',
                 name: 'href',
-                type: 'url',
-              },
-            ],
-          },
-        ],
-      },
+                type: 'url'
+              }
+            ]
+          }
+        ]
+      }
     }),
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
@@ -75,14 +75,14 @@ export default defineType({
         {
           name: 'alt',
           type: 'string',
-          title: 'Alternative Text',
+          title: 'Alternative Text'
         },
         {
           name: 'label',
           type: 'string',
-          title: 'Label',
-        },
-      ],
+          title: 'Label'
+        }
+      ]
     }),
     // defineArrayMember({
     //   type: 'object',
@@ -109,8 +109,8 @@ export default defineType({
       name: 'codeBlock',
       title: 'Code Block',
       options: {
-        withFilename: true,
-      },
-    }),
-  ],
-});
+        withFilename: true
+      }
+    })
+  ]
+})

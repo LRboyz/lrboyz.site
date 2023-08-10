@@ -8,6 +8,7 @@ import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { media } from 'sanity-plugin-media'
 import { schema } from './sanity/schema'
+import { dataset, projectId, apiVersion } from './sanity/config'
 
 // import { settingsPlugin, settingsStructure } from '~/sanity/plugins/settings'
 
@@ -17,22 +18,23 @@ import { schema } from './sanity/schema'
 // import settingsType from './sanity/schemas/settings'
 
 export default defineConfig({
+  title: 'lrboyz.site',
   basePath: '/studio',
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
+  projectId: projectId,
+  dataset: dataset,
   // Add and edit the content schema in the './sanity/schema' folder
   schema,
   plugins: [
     deskTool({
-    //   structure: settingsStructure(settingsType),
+      //   structure: settingsStructure(settingsType),
     }),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
-    visionTool({ defaultApiVersion: '2023-07-26' }),
+    visionTool({ defaultApiVersion: apiVersion }),
     // settingsPlugin({
     //   type: settingsType.name,
     // }),
     media(),
-    codeInput(),
-  ],
+    codeInput()
+  ]
 })
