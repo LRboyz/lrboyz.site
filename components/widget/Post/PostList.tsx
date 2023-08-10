@@ -48,6 +48,7 @@ export default function PostList({ Posts, fetchPosts }: PostListProps) {
     if (currPage > 1) {
       fetchMoreArticle()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currPage])
 
   return (

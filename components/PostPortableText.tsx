@@ -43,10 +43,6 @@ const components: PortableTextComponents = {
   }
 }
 
-export function PostPortableText(props: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  value: any
-  components?: PortableTextComponents
-}) {
+export function PostPortableText(props: { value: any; components?: PortableTextComponents }) {
   return <PortableText value={props.value} components={props.components ?? components} />
 }

@@ -6,10 +6,7 @@ import { ClientOnly } from '~/components/ClientOnly'
 
 export function PortableTextBlocksNormal({ value, children }: PortableTextComponentProps<any>) {
   const isEmpty = !Boolean(
-    value.children
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-      .map((child: any) => ('text' in child ? child.text : ''))
-      .join('')
+    value.children.map((child: any) => ('text' in child ? child.text : '')).join('')
   )
 
   return (
