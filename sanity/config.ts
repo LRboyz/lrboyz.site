@@ -1,6 +1,6 @@
 export const useCDN = process.env.NODE_ENV === 'production'
 
-export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || ''
 
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || ('production' as string)
 
