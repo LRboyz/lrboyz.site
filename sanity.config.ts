@@ -20,7 +20,7 @@ import { dataset, projectId, apiVersion } from './sanity/config'
 export default defineConfig({
   title: 'lrboyz.site',
   basePath: '/studio',
-  projectId: projectId,
+  projectId: projectId!,
   dataset: dataset,
   // Add and edit the content schema in the './sanity/schema' folder
   schema,
