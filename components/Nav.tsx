@@ -6,7 +6,6 @@ import { clsx } from 'clsx'
 import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { usePathname } from 'next-intl/client'
-import NextLink from 'next/link'
 import React, { ComponentProps } from 'react'
 import { BsGithub, BsTwitter } from 'react-icons/bs'
 import { SiAboutdotme } from 'react-icons/si'
@@ -15,10 +14,10 @@ import Link from 'next/link'
 
 const links = [
   { href: '/', label: 'Home', icon: TbPlanet },
-  { href: '/posts', label: 'Posts', icon: TbBook },
+  // { href: '/posts', label: 'Posts', icon: TbBook },
   { href: '/coding', label: 'Coding', icon: TbCode },
+
   { href: '/life', label: 'Life', icon: TbMoodHappy },
-  // { href: '/services', label: 'Services', icon: TbAugmentedReality2 },
   { href: '/photography', label: 'Photography', icon: TbCamera },
   { href: '/about', label: 'About', icon: SiAboutdotme }
   // { href: '/gallery', label: 'Gallery', icon: TbPhoto },
@@ -50,8 +49,8 @@ export function Nav({ className }: { className?: string }) {
   const t = useTranslations('Root.Metadata')
 
   return (
-    <aside className={clsx('md:mx-0 md:w-44 md:flex-shrink-0 md:px-0', className)}>
-      <motion.div className='md:sticky md:top-12 ' layout layoutRoot>
+    <aside className={clsx('md:mx-0 md:w-44 md:flex-shrink-0 md:px-0 hidden md:block lg:block', className)}>
+      <motion.div className='md:sticky md:top-10 ' layout layoutRoot>
         <Link
           href='/'
           aria-label={t('Title')}
@@ -71,23 +70,9 @@ export function Nav({ className }: { className?: string }) {
         </Link>
 
         <NavMenu />
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98, y: 8 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{
-            delay: 0.2
-          }}
-        >
-          <Separator />
-        </motion.div>
       </motion.div>
     </aside>
   )
-}
-
-function Separator() {
-  return <div className='pointer-events-none mx-2 my-2 hidden h-px bg-stone-200/70 dark:bg-stone-700/50 md:block' />
 }
 
 function NavMenu() {
@@ -111,6 +96,7 @@ const MenuLink = React.forwardRef<HTMLAnchorElement, ComponentProps<any>>(
   ({ className, children, href, label }, forwardedRef) => {
     const pathname = usePathname()
     const isActive = href === pathname
+
     return (
       <li className='mb-2 w-full '>
         <NavigationMenu.Link active={isActive} asChild>

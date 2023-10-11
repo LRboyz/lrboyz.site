@@ -56,7 +56,7 @@ export function LocaleSelector() {
           <Select.Item key={value} value={value}>
             <span className='inline-flex select-none items-center space-x-2 font-bold'>
               <Icon />
-              <span>{t(value as any)}</span>
+              <span className=' whitespace-nowrap'>{t(value as any)}</span>
             </span>
           </Select.Item>
         ))}

@@ -2,17 +2,24 @@ import { defineField, defineType } from 'sanity'
 
 import { ScriptIcon } from '~/components/icons/ScriptIcon'
 
-export type Category = {
+export type Tag = {
   _id: string
   title: string
-  slug: string
+  slug: {
+    current: string
+  }
   description: string
   publishedAt: string
+  article_count?: number
+  attributes: Array<{
+    name: string
+    value: string
+  }>
 }
 
 export default defineType({
-  name: 'category',
-  title: 'Category',
+  name: 'tag',
+  title: 'Tag',
   type: 'document',
   icon: ScriptIcon,
   fields: [

@@ -1,0 +1,3 @@
+.swiper > .swiper-wrapper[style*='300ms'] > .swiper-slide-active {
+  filter: url('../../assets/motion-blur.svg#vertical-small');
+}

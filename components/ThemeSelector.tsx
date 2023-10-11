@@ -50,7 +50,7 @@ export function ThemeSelector() {
           <Select.Item key={value} value={value}>
             <div className='inline-flex select-none items-center space-x-2 font-bold pt-1'>
               <Icon className='h-4 w-4 stroke-current' />
-              <span>{t(label as any)}</span>
+              <span className=' whitespace-nowrap'>{t(label as any)}</span>
             </div>
           </Select.Item>
         ))}

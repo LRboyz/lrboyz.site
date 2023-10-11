@@ -2,7 +2,7 @@ import { Skeleton } from '@nextui-org/skeleton'
 
 export default function PostSlugLoading() {
   return (
-    <div className='w-full space-y-5 p-4 mb-2 bg-ldbg/70 dark:dcbg/50 border-0 h-full'>
+    <div className='w-full space-y-5 p-4 mb-2 bg-ldbg/70 dark:dcbg/50 border-0 h-full bg-white dark:bg-zinc-800'>
       <Skeleton className='rounded-lg'>
         <div className='h-36 rounded-lg bg-default-300'></div>
       </Skeleton>

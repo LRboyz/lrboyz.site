@@ -9,13 +9,14 @@ import { TbEye } from 'react-icons/tb'
 
 interface PostDetailProps {
   post: PostDetail
+  views: number
 }
 
-export default function PostDetailPage({ post }: PostDetailProps) {
+export default function PostDetailPage({ post, views }: PostDetailProps) {
   const { body, mainImage, title, readingTime, publishedAt, headings } = post
   return (
     <div className={`relative`}>
-      <article>
+      <article className=' border-b'>
         <header className='relative flex flex-col items-center'>
           <motion.div
             className='relative  w-full text-center mb-4'
@@ -28,8 +29,8 @@ export default function PostDetailPage({ post }: PostDetailProps) {
               damping: 20
             }}
           >
-            <h2 className='text-xl dark:text-[#efefef]'>{title}</h2>
-            <div className='flex gap-2 text-xs w-full justify-center my-2 font-sans'>
+            <h2 className='text-xl font-bold'>{title}</h2>
+            <div className='flex gap-2 text-xs w-full justify-center my-2 font-sans text-[#9e9e9e]'>
               <div className='flex items-center'>
                 <BiFont className='mr-1' />共 13245 字, 需要阅读{readingTime}分钟
               </div>
@@ -38,7 +39,7 @@ export default function PostDetailPage({ post }: PostDetailProps) {
                 发布于3天前
               </div>
               <div className='flex items-center'>
-                <TbEye className='mr-1' /> 共12888次阅读
+                <TbEye className='mr-1' /> 共{views}次阅读
               </div>
             </div>
           </motion.div>
@@ -68,6 +69,7 @@ export default function PostDetailPage({ post }: PostDetailProps) {
           <PostPortableText value={body} />
         </Prose>
       </article>
+      <div></div>
     </div>
   )
 }

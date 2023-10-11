@@ -1,15 +1,13 @@
-'use client';
+import * as SelectPrimitive from '@radix-ui/react-select'
+import { clsx } from 'clsx'
+import React from 'react'
+import { TbCheck, TbChevronDown } from 'react-icons/tb'
 
-import * as SelectPrimitive from '@radix-ui/react-select';
-import { clsx } from 'clsx';
-import React from 'react';
-import { TbCheck, TbChevronDown } from 'react-icons/tb';
+const Root = SelectPrimitive.Root
 
-const Root = SelectPrimitive.Root;
+const Group = SelectPrimitive.Group
 
-const Group = SelectPrimitive.Group;
-
-const Value = SelectPrimitive.Value;
+const Value = SelectPrimitive.Value
 
 const Trigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
@@ -20,15 +18,15 @@ const Trigger = React.forwardRef<
     className={clsx(
       'mr-2 flex h-8 w-full select-none items-center justify-between rounded-md border border-stone-300 bg-transparent px-2 py-1 text-sm placeholder:text-stone-600 focus:outline-none focus-visible:ring focus-visible:ring-stone-400 disabled:cursor-not-allowed disabled:opacity-50 dark:border-stone-700 dark:text-stone-100 dark:placeholder:text-stone-500 dark:focus-visible:ring-stone-700',
       'tracking-tight',
-      className,
+      className
     )}
     {...props}
   >
     {children}
-    <TbChevronDown className="h-4 w-4 opacity-50" />
+    <TbChevronDown className='h-4 w-4 opacity-50' />
   </SelectPrimitive.Trigger>
-));
-Trigger.displayName = SelectPrimitive.Trigger.displayName;
+))
+Trigger.displayName = SelectPrimitive.Trigger.displayName
 
 const Content = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
@@ -39,17 +37,15 @@ const Content = React.forwardRef<
       ref={ref}
       className={clsx(
         'animate-in fade-in-80 relative z-50 min-w-[8rem] overflow-hidden rounded-xl border border-stone-100 bg-white text-stone-700 shadow-xl dark:border-stone-800 dark:bg-stone-900 dark:text-stone-300',
-        className,
+        className
       )}
       {...props}
     >
-      <SelectPrimitive.Viewport className="p-1">
-        {children}
-      </SelectPrimitive.Viewport>
+      <SelectPrimitive.Viewport className='p-1'>{children}</SelectPrimitive.Viewport>
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
-));
-Content.displayName = SelectPrimitive.Content.displayName;
+))
+Content.displayName = SelectPrimitive.Content.displayName
 
 const Label = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Label>,
@@ -57,14 +53,11 @@ const Label = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
-    className={clsx(
-      'py-1.5 pl-8 pr-2 text-sm font-semibold text-stone-800 dark:text-stone-200',
-      className,
-    )}
+    className={clsx('py-1.5 pl-8 pr-2 text-sm font-semibold text-stone-800 dark:text-stone-200', className)}
     {...props}
   />
-));
-Label.displayName = SelectPrimitive.Label.displayName;
+))
+Label.displayName = SelectPrimitive.Label.displayName
 
 const Item = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,
@@ -75,20 +68,20 @@ const Item = React.forwardRef<
     className={clsx(
       'relative z-50 flex cursor-default select-none items-center rounded-lg py-1.5 pl-8 pr-2 text-sm font-medium outline-none transition-colors focus:bg-stone-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-stone-800',
       'tracking-tight',
-      className,
+      className
     )}
     {...props}
   >
-    <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+    <span className='absolute left-2 flex h-3.5 w-3.5 items-center justify-center'>
       <SelectPrimitive.ItemIndicator>
-        <TbCheck className="h-4 w-4" />
+        <TbCheck className='h-4 w-4' />
       </SelectPrimitive.ItemIndicator>
     </span>
 
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
   </SelectPrimitive.Item>
-));
-Item.displayName = SelectPrimitive.Item.displayName;
+))
+Item.displayName = SelectPrimitive.Item.displayName
 
 const Separator = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Separator>,
@@ -96,14 +89,11 @@ const Separator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Separator
     ref={ref}
-    className={clsx(
-      '-mx-1 my-1 h-px bg-stone-100 dark:bg-stone-700',
-      className,
-    )}
+    className={clsx('-mx-1 my-1 h-px bg-stone-100 dark:bg-stone-700', className)}
     {...props}
   />
-));
-Separator.displayName = SelectPrimitive.Separator.displayName;
+))
+Separator.displayName = SelectPrimitive.Separator.displayName
 
 export const Select = Object.freeze({
   Root,
@@ -113,5 +103,5 @@ export const Select = Object.freeze({
   Content,
   Label,
   Item,
-  Separator,
-});
+  Separator
+})

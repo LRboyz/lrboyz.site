@@ -1,3 +1,3 @@
 export default function LifePage() {
-  return <>This is Life Page</>;
+  return <>This is Life Page!</>
 }

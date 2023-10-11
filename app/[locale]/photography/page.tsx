@@ -1,3 +1,3 @@
-export default function PhotoGraphyPage() {
-  return <>This is PhotoGraphy Page</>;
+export default function PhotoGraphy() {
+  return <>This is PhotoGraphy Page!</>
 }

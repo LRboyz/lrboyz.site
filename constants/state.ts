@@ -1,1 +1,0 @@
-export const DEFAULT_ARTICLE_OFFSET = 2

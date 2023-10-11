@@ -2,7 +2,7 @@
 // const withNextIntl = require('next-intl/plugin')('./i18n.ts')
 
 const nextConfig = {
-  reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
+  reactStrictMode: false, // Recommended for the `pages` directory, default in `app`.
   experimental: {
     appDir: true,
     serverActions: true

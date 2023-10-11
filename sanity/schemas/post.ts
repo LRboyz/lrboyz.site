@@ -1,35 +1,31 @@
 import { defineField, defineType } from 'sanity'
-import { z } from 'zod'
 import { PencilSwooshIcon } from '~/components/icons/PencliSwooshIcon'
 import { readingTimeType } from './types/ReadingTimeInput'
+import { Category } from './category'
+import { Tag } from './tag'
 
-export const Post = z.object({
-  _id: z.string(),
-  title: z.string(),
-  slug: z.string(),
-  total: z.number().optional(),
-  mainImage: z.object({
-    _ref: z.string(),
-    asset: z.object({
-      url: z.string(),
-      lqip: z.string().optional(),
-      dominant: z
-        .object({
-          background: z.string(),
-          foreground: z.string()
-        })
-        .optional()
-    })
-  }),
-  publishedAt: z.string(),
-  description: z.string(),
-  categories: z.array(z.string()),
-  body: z.any(),
-  readingTime: z.number(),
-  mood: z.enum(['happy', 'sad', 'neutral'])
-})
-
-export type Post = z.infer<typeof Post>
+export type Post = {
+  _id: string
+  title: string
+  slug: string
+  mainImage: {
+    _ref: string
+    asset: {
+      url: string
+      lqip?: string
+      dominant?: {
+        background: string
+        foreground: string
+      }
+    }
+  }
+  publishedAt: string
+  description: string
+  categories: Category[]
+  tags: Tag[]
+  body: any
+  readingTime: number
+}
 
 export type PostDetail = Post & {
   headings: any[]
@@ -59,8 +55,14 @@ export default defineType({
       validation: Rule => Rule.required()
     }),
     defineField({
-      name: 'categories',
-      title: 'Categories',
+      name: 'tag',
+      title: 'Tag',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'tag' } }]
+    }),
+    defineField({
+      name: 'category',
+      title: 'Category',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'category' } }]
     }),
@@ -98,26 +100,8 @@ export default defineType({
       options: {
         source: 'body'
       }
-    }),
-    defineField({
-      name: 'mood',
-      title: 'Mood',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Neutral', value: 'neutral' },
-          { title: 'Happy', value: 'happy' },
-          { title: 'Sad', value: 'sad' }
-        ],
-        layout: 'radio'
-      }
     })
   ],
-
-  initialValue: () => ({
-    publishedAt: new Date().toISOString(),
-    mood: 'neutral'
-  }),
 
   preview: {
     select: {
