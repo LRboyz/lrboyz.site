@@ -1,3 +1,3 @@
 export default function PhotoGraphy() {
-  return <>This is PhotoGraphy Page!</>
+  return <div className='mt-10'>This is PhotoGraphy Page!</div>
 }

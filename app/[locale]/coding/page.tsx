@@ -1,3 +1,3 @@
 export default function CodingPage() {
-  return <>This is Coding Page!</>
+  return <div className='mt-10'>This is Coding Page!</div>
 }

@@ -1,3 +1,3 @@
 export default function LifePage() {
-  return <>This is Life Page!</>
+  return <div className='mt-10'>This is Life Page!</div>
 }
