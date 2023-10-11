@@ -3,7 +3,7 @@
 import { Divider } from '@nextui-org/divider'
 import { GoInbox } from 'react-icons/go'
 import { getKeyValue } from '~/lib/transformer'
-import { useTagStore } from '~/store/tagSlice'
+import { useTagStore } from '~/store/tag'
 
 interface TagCardProps {
   slug: string
