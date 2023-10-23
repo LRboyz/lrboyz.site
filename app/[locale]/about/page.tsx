@@ -12,7 +12,7 @@ export default function AboutMe() {
 
   const banner =
     theme === 'dark'
-      ? "bg-[url('https://cdn.sanity.io/images/qztykfb9/production/d2784fd5e5259ec5ce1c45eeff9f147ea7731d33-1347x744.jpg')]"
+      ? "bg-[url('https://cdn.sanity.io/images/qztykfb9/production/7594b7051343557e55dd49cc8e2185a09755c214-4096x2514.jpg)]"
       : "bg-[url('https://cdn.sanity.io/images/qztykfb9/production/d105ef3964d97a5a28adf62489c43d40e983ed62-1202x676.jpg')]"
 
   return (

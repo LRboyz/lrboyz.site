@@ -56,7 +56,7 @@ export const usePostStore = create<PostState>()(
       set({ loading: true })
       const { tag } = params
       const fetcher = tag ? fetchPostsByTag : fetchPosts
-      alert(1111)
+
       fetcher({ limit, offset, ...params }).then(response => {
         if (isLoadMore) {
           set(prev => ({
