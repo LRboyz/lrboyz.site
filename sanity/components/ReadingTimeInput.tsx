@@ -1,12 +1,7 @@
 import { Box, Button, Flex } from '@sanity/ui'
 import React from 'react'
 import ReadingTime from 'reading-time'
-import {
-  type FieldMember,
-  type NumberInputProps,
-  set,
-  useFormBuilder,
-} from 'sanity'
+import { type FieldMember, type NumberInputProps, set, useFormBuilder } from 'sanity'
 
 type SanityBlock = {
   _type: string
@@ -15,7 +10,7 @@ type SanityBlock = {
 }
 
 function flattenBlocks(blocks: SanityBlock[]): string[] {
-  return blocks.flatMap((block) => {
+  return blocks.flatMap(block => {
     if (block.text) {
       return [block.text]
     }
@@ -35,7 +30,7 @@ export default function ReadingTimeInput(props: NumberInputProps) {
 
   const generate = React.useCallback(() => {
     // find the member that has the key of "body"
-    const bodyMember = members.find((member) => {
+    const bodyMember = members.find(member => {
       if (member.kind === 'field') {
         // @ts-ignore
         return member.name === schemaType.options?.source ?? 'body'
@@ -46,17 +41,15 @@ export default function ReadingTimeInput(props: NumberInputProps) {
       return
     }
 
-    const rt = ReadingTime(
-      flattenBlocks(bodyMember.field.value as SanityBlock[]).join('\n')
-    )
+    const rt = ReadingTime(flattenBlocks(bodyMember.field.value as SanityBlock[]).join('\n'))
     props.onChange(set(rt.minutes))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [members, props.onChange, schemaType.options])
 
   return (
-    <Flex gap={3} align="center">
+    <Flex gap={3} align='center'>
       <Box flex={1}>{props.renderDefault(props)}</Box>
-      <Button mode="ghost" onClick={generate}>
+      <Button mode='ghost' onClick={generate}>
         Generate
       </Button>
     </Flex>

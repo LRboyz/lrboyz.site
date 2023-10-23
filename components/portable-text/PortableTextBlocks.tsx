@@ -5,9 +5,7 @@ import { ClientOnly } from '~/components/ClientOnly'
 // import { Commentable } from '~/components/Commentable'
 
 export function PortableTextBlocksNormal({ value, children }: PortableTextComponentProps<any>) {
-  const isEmpty = !Boolean(
-    value.children.map((child: any) => ('text' in child ? child.text : '')).join('')
-  )
+  const isEmpty = !Boolean(value.children.map((child: any) => ('text' in child ? child.text : '')).join(''))
 
   return (
     <p data-blockid={isEmpty ? undefined : value._key} className='link group relative pr-3 md:pr-0 text-sm '>

@@ -1,1 +1,1 @@
-type RootParams = { locale: 'en' | 'zh-CN' };
+type RootParams = { locale: 'en' | 'zh-CN' }

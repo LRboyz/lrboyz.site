@@ -1,15 +1,15 @@
-'use client';
+'use client'
 
 // import { DefaultRichTextComponents } from '~/components/ui/RichText';
-import type { AbstractIntlMessages } from 'next-intl';
-import { NextIntlClientProvider } from 'next-intl';
-import React from 'react';
+import type { AbstractIntlMessages } from 'next-intl'
+import { NextIntlClientProvider } from 'next-intl'
+import React from 'react'
 
 type Props = {
-  messages: AbstractIntlMessages;
-  locale: string;
-  children: React.ReactNode;
-};
+  messages: AbstractIntlMessages
+  locale: string
+  children: React.ReactNode
+}
 
 export default function IntlProvider({ messages, locale, children }: Props) {
   return (
@@ -20,5 +20,5 @@ export default function IntlProvider({ messages, locale, children }: Props) {
     >
       {children}
     </NextIntlClientProvider>
-  );
+  )
 }
