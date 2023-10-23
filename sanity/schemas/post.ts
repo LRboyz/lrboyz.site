@@ -55,14 +55,14 @@ export default defineType({
       validation: Rule => Rule.required()
     }),
     defineField({
-      name: 'tag',
-      title: 'Tag',
+      name: 'tags',
+      title: 'Tags',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'tag' } }]
     }),
     defineField({
-      name: 'category',
-      title: 'Category',
+      name: 'categories',
+      title: 'Categories',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'category' } }]
     }),

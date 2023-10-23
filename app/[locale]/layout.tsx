@@ -1,6 +1,7 @@
 import 'tailwindcss/tailwind.css'
 import '~/styles/globals.css'
 import '~/styles/iconfont.css'
+import '~/styles/clerk.css'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import IntlProvider from '~/providers/IntlProvider'
@@ -9,9 +10,10 @@ import { Background } from '~/components/Background'
 import AppNextUIProvider from '~/providers/NextUIProvider'
 import { SayHi } from '~/components/Hello'
 import Header from '~/components/Header'
-import { AnalyticsWrapper } from '~/components/Analytics'
 import { Nav } from '~/components/Nav'
 import Sidebar from '~/components/Sidebar'
+import { ClerkProvider } from '@clerk/nextjs'
+import { zhCN } from '~/lib/clerkLocalizations'
 
 export async function generateMetadata({ params }: { params: RootParams }): Promise<Metadata> {
   return {
@@ -51,19 +53,20 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
   }
 
   return (
-    <html lang={params.locale} suppressHydrationWarning className={``}>
-      <body className=' min-h-screen '>
-        <Background />
-        <SayHi />
-        <AppNextUIProvider>
-          <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
-            <IntlProvider locale={params.locale} messages={message}>
-              <AppContainer>{children}</AppContainer>
-            </IntlProvider>
-          </ThemeProvider>
-          <AnalyticsWrapper />
-        </AppNextUIProvider>
-      </body>
-    </html>
+    <ClerkProvider localization={zhCN}>
+      <html lang={params.locale} suppressHydrationWarning className={``}>
+        <body className=' min-h-screen '>
+          <Background />
+          <SayHi />
+          <AppNextUIProvider>
+            <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+              <IntlProvider locale={params.locale} messages={message}>
+                <AppContainer>{children}</AppContainer>
+              </IntlProvider>
+            </ThemeProvider>
+          </AppNextUIProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }

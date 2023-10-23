@@ -3,25 +3,12 @@ import { FiInbox } from 'react-icons/fi'
 import { BiSolidCommentDots, BiSolidTime } from 'react-icons/bi'
 import { BsFillEyeFill } from 'react-icons/bs'
 import { AiFillHeart } from 'react-icons/ai'
-import { getHotPosts } from '~/sanity/queries'
-import { env } from 'process'
-import { redis } from '~/lib/redis'
-import { kvKeys } from '~/config/app.config'
 
 interface HotPostListProps {}
 export default async function HotPostList({}: HotPostListProps) {
-  const hotPosts = await getHotPosts()
-  const postIdKeys = hotPosts.map(({ _id }) => kvKeys.postViews(_id))
-
-  let views: number[] = []
-  if (env.VERCEL_ENV === 'development') {
-    views = hotPosts.map(() => Math.floor(Math.random() * 1000))
-  } else {
-    views = await redis.mget<number[]>(...postIdKeys)
-  }
-
+  const hotPosts = [] as any[]
   return (
-    <div className='flex flex-col my-4 px-3  text-sm  border-0 mr-2 w-full rounded-md dark:bg-[#2d2d2D]/70 dark:hover:bg-[#2d2d2D] bg-[#fefefe]/90 hover:bg-white p-2 pb-4 text-stone-400'>
+    <div className='flex flex-col my-4 px-3  text-sm  border-0 mr-2 w-full rounded-md bg-[#fefefe]/90 dark:bg-[#2d2d2D]/70 dark:hover:bg-[#2d2d2D]  hover:bg-white p-2 pb-4 text-stone-400'>
       <div className='flex items-center border-b-1 pb-2  cursor-pointer dark:border-zinc-600'>
         <HiFire className='text-lg' />
         <p className='ml-1 font-bold'>热门文章</p>
@@ -41,7 +28,7 @@ export default async function HotPostList({}: HotPostListProps) {
                 </div>
                 <div className='flex items-center'>
                   <BsFillEyeFill className='mr-1 w-3' />
-                  <span>{views[index] ?? 0}</span>
+                  <span>1.2k</span>
                 </div>
                 <div className='flex items-center'>
                   <AiFillHeart className='mr-1 w-3' />

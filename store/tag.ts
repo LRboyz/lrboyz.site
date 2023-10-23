@@ -1,3 +1,4 @@
+import { dataMeta } from '~/sanity/queries'
 import { create } from 'zustand'
 import { Tag } from '~/sanity/schemas/tag'
 // import { createJSONStorage, persist } from 'zustand/middleware'

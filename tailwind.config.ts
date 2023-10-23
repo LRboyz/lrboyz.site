@@ -18,7 +18,7 @@ export default {
       transparent: 'transparent',
       current: 'currentColor',
       fontSize: {
-        xs: ['0.8125rem', { lineHeight: '1.5rem' }],
+        xs: ['0.7125rem', { lineHeight: '1.5rem' }],
         sm: ['0.875rem', { lineHeight: '1.5rem' }],
         base: ['1rem', { lineHeight: '1.75rem' }],
         lg: ['1.125rem', { lineHeight: '1.75rem' }],

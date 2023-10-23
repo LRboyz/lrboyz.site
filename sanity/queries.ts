@@ -6,8 +6,9 @@ import _ from 'lodash'
 
 export type GetPostParams = {
   limit?: number
-  skip?: number
-  tag?: string
+  offset?: number
+  tag?: string | string[]
+  page?: number
 }
 export type dataMeta = {
   total: number
@@ -37,12 +38,12 @@ export type bannerType = {
 /*  defined(): 函数接受任何参数并计算它是 true, false, 还是 NULL ： */
 /* drafts.** 过滤掉非草稿的文章 */
 
-export const getPosts = async ({ skip = 0, limit = 0 }: GetPostParams) =>
+export const fetchPosts = async ({ offset = 0, limit = 5 }: GetPostParams) =>
   fetcher<formatData<Post[]>>(
     groq`
     {
       "data": 
-      *[_type == "post" && !(_id in path("drafts.**"))][${skip}...${limit}] | order(publishedAt asc) {
+      *[_type == "post" && !(_id in path("drafts.**"))][${offset}...${limit}] | order(publishedAt asc) {
       _id,
       title,
       "slug": slug.current,
@@ -67,13 +68,12 @@ export const getPosts = async ({ skip = 0, limit = 0 }: GetPostParams) =>
     `
   )
 
-export const getPostsByTag = async ({ skip = 0, limit = 0, tag }: GetPostParams) => {
-  console.log(tag, 'tagggggggg')
+export const fetchPostsByTag = async ({ offset = 0, limit = 5, tag }: GetPostParams) => {
   return fetcher<formatData<Post[]>>(
     groq`
     {
       "data": 
-      *[_type == "post" && $tag in tags[]->slug.current && !(_id in path("drafts.**"))][${skip}...${limit}] | order(publishedAt asc) {
+      *[_type == "post" && $tag in tags[]->slug.current && !(_id in path("drafts.**"))][${offset}...${limit}] | order(publishedAt asc) {
       _id,
       title,
       "slug": slug.current,
@@ -100,11 +100,11 @@ export const getPostsByTag = async ({ skip = 0, limit = 0, tag }: GetPostParams)
   )
 }
 
-export const getHotPosts = async ({ skip = 0, limit = 0 }: GetPostParams) =>
+export const getHotPosts = async () =>
   fetcher<Post[]>(
     groq`
   *[_type == "post" && !(_id in path("drafts.**"))
-  && defined(slug.current)][${skip}...${limit}] | order(publishedAt desc) {
+  && defined(slug.current)][0...10] | order(publishedAt desc) {
     _id,
     title,
     "slug": slug.current,

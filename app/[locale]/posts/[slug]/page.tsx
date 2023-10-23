@@ -13,7 +13,7 @@ export default async function PostSlugPage({ params }: { params: { slug: string 
   }
 
   return (
-    <div className={`bg-[#FEFEFE]/70 dark:bg-[#2d2d2D]/70 mx-4 mt-10 p-4 min-h-[90vh]`}>
+    <div className={`bg-[#FEFEFE]/70 dark:bg-[#2d2d2D]/70 mx-4 mt-10 p-4 min-h-[90vh] rounded-md`}>
       <PostDetail post={post} views={views} />
     </div>
   )

@@ -44,12 +44,12 @@ export default function BannerList({ posts }: BannerSliderProps) {
   }, [posts])
 
   return (
-    <div className='w-full mb-4 rounded-md overflow-hidden relative min-h-[200px]'>
+    <div className='w-full mb-2 rounded-md overflow-hidden relative min-h-[200px] shadow-md'>
       <Swiper {...sliderSettings}>
         {slides.map(slide => (
           <SwiperSlide style={{ ...slideStyles }} key={slide._id} className='transition-all duration-50'>
             <div className={`w-full mr-2 h-full hidden md:block lg:block overflow-hidden relative`}>
-              <div className=' dark:shadow-dark shadow-light absolute right-4 top-4 z-20 bg-[#fefefe] px-4 rounded-md cursor-pointer  hover:bg-[#fefefe] dark:bg-[#2a2a2a]/80 py-1 dark:text-zinc-300/80 text-zinc-600 hover:text-zinc-800 dark:hover:text-white transition-all duration-150'>
+              <div className='shadow-light dark:shadow-dark hover:shadow-none hover:dark:shadow-none  absolute right-4 top-4 z-20 bg-[#fefefe] px-4 rounded-md cursor-pointer  hover:bg-[#fefefe] dark:bg-[#2a2a2a]/80 py-1 dark:text-zinc-300/80 text-zinc-600 hover:text-zinc-800 transition-all dark:hover:text-white ease-in-out duration-300'>
                 <p className='font-mono font-bold text-sm '>{slide.title}</p>
               </div>
 
