@@ -12,8 +12,8 @@ export default function AboutMe() {
 
   const banner =
     theme === 'dark'
-      ? "bg-[url('https://c.53326.com/d/file/lan2019010709/msthlam54va.jpg')]"
-      : "bg-[url('https://c.53326.com/d/file/lan20191114/1djnz3cdry5.jpg')]"
+      ? "bg-[url('https://cdn.sanity.io/images/qztykfb9/production/d2784fd5e5259ec5ce1c45eeff9f147ea7731d33-1347x744.jpg')]"
+      : "bg-[url('https://cdn.sanity.io/images/qztykfb9/production/d105ef3964d97a5a28adf62489c43d40e983ed62-1202x676.jpg')]"
 
   return (
     <div className='mt-10 flex justify-center flex-col items-center mx-4'>
