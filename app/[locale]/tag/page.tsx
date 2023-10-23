@@ -23,7 +23,7 @@ export default function PostByTagPage() {
 
   useEffect(() => {
     getPosts({ tag: slug })
-  }, [paginate.page, slug])
+  }, [slug])
 
   useEffect(() => {
     if (posts.length > 0) getViews()

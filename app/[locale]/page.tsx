@@ -7,7 +7,7 @@ import { fetchViews } from './action'
 import { kvKeys } from '~/config/app.config'
 
 export default function Home() {
-  const { getPosts, posts, loading, paginate, setPaginate } = usePostStore()
+  const { getPosts, posts, loading, paginate } = usePostStore()
   const [views, setViews] = useState<number[]>([])
 
   const postIdKeys = posts.map(({ _id }) => kvKeys.postViews(_id))
@@ -25,7 +25,7 @@ export default function Home() {
 
   useEffect(() => {
     getPosts({})
-  }, [paginate.page])
+  }, [])
 
   return (
     <div className='mx-4 pb-6 rounded-md mt-10'>

@@ -16,7 +16,9 @@ export interface PostState {
   paginate: Paginate
   setPaginate: (page: number) => void
 }
-const initialMeta = {
+const initialPaginate = {
+  page: 1,
+  pageSize: 5,
   total: 0
 }
 
@@ -24,13 +26,8 @@ export const usePostStore = create<PostState>()(
   // persist(
   (set, get) => ({
     posts: [],
-    meta: initialMeta,
     loading: false,
-    paginate: {
-      page: 1,
-      pageSize: 5,
-      total: 0
-    },
+    paginate: initialPaginate,
     setPaginate: page =>
       set({
         paginate: {
@@ -50,11 +47,7 @@ export const usePostStore = create<PostState>()(
       // console.log(params, '============= PARAMS ===================')
       if (isRestart) {
         set({
-          paginate: {
-            page: 1,
-            pageSize: 5,
-            total: 0
-          },
+          paginate: initialPaginate,
           posts: []
         })
       }
@@ -63,6 +56,7 @@ export const usePostStore = create<PostState>()(
       set({ loading: true })
       const { tag } = params
       const fetcher = tag ? fetchPostsByTag : fetchPosts
+      alert(1111)
       fetcher({ limit, offset, ...params }).then(response => {
         if (isLoadMore) {
           set(prev => ({
