@@ -11,12 +11,8 @@ export default function PostByTagPage() {
   const routerQuery = useRouterQuery()
   const { slug } = routerQuery
   const [views, setViews] = useState<number[]>([])
-  const { getPosts, posts, loading, paginate, setPaginate } = usePostStore()
+  const { getPosts, posts, loading, paginate } = usePostStore()
   const postIdKeys = posts.map(({ _id }) => kvKeys.postViews(_id))
-  const offset = (paginate.page - 1) * paginate.pageSize
-  const limit = offset + 5
-
-  console.log(posts, 'Tag posts')
 
   const getViews = async () => {
     const views = await fetchViews(postIdKeys)

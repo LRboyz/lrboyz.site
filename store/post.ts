@@ -47,9 +47,8 @@ export const usePostStore = create<PostState>()(
       const offset = (page - 1) * get().paginate.pageSize
       const limit = offset + 5
 
-      console.log(params, '============= PARAMS ===================')
+      // console.log(params, '============= PARAMS ===================')
       if (isRestart) {
-        alert(33333)
         set({
           paginate: {
             page: 1,
@@ -59,8 +58,8 @@ export const usePostStore = create<PostState>()(
           posts: []
         })
       }
-      console.log(get())
-      console.log(params, 'params-----')
+      // console.log(get())
+      // console.log(params, 'params-----')
       set({ loading: true })
       const { tag } = params
       const fetcher = tag ? fetchPostsByTag : fetchPosts

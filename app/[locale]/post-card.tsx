@@ -43,7 +43,7 @@ export function PostCard({ post, view }: PostItemProps) {
           </div>
           <div className='flex items-center  px-2 rounded-lgtransition duration-150 hover:underline'>
             <BiSolidCommentDots className='mr-1 w-3' />
-            <span className=''>88</span>
+            <span className=''>0</span>
           </div>
           <div className='flex items-center py-1 pr-2 hover:underline '>
             <BiSolidTime className='mr-1 w-3' />

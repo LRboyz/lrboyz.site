@@ -15,7 +15,7 @@ import Link from 'next/link'
 const links = [
   { href: '/', label: 'Home', icon: TbPlanet },
   // { href: '/posts', label: 'Posts', icon: TbBook },
-  { href: '/coding', label: 'Coding', icon: TbCode },
+  // { href: '/coding', label: 'Coding', icon: TbCode },
 
   { href: '/life', label: 'Life', icon: TbMoodHappy },
   { href: '/photography', label: 'Photography', icon: TbCamera },

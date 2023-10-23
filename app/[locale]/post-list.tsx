@@ -43,7 +43,7 @@ export function PostList({ loading, posts, paginate, views, loadMore }: PostList
         ) : (
           <>
             {posts.length === 0 && !loading ? (
-              <div className='w-full flex justify-center py-4'>
+              <div className='w-full flex justify-center py-4 border-none'>
                 <EmptyIcon />
               </div>
             ) : (
