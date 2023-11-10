@@ -18,6 +18,8 @@ export default async function Home({ searchParams }: HomeProps) {
   const postIds = posts.map(({ _id }) => kvKeys.postViews(_id))
   const views = await redis.mget<number[]>(...postIds)
 
+  console.log(posts, 'posts')
+
   return (
     <>
       <BannerList posts={posts} />

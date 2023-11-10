@@ -2,8 +2,8 @@
 
 import { Select } from '~/components/ui/Select'
 import { useLocale, useTranslations } from 'next-intl'
-import { usePathname } from 'next-intl/client'
-import { useRouter } from 'next-intl/client'
+import { usePathname, useRouter } from 'next-intl/client'
+
 import React, { useTransition } from 'react'
 
 const languages = [

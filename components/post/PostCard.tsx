@@ -67,7 +67,7 @@ export function PostCard({ post, view }: PostItemProps) {
           {categories && categories.length > 0 && (
             <div className='flex items-center px-2 rounded-l transition duration-150 hover:underline'>
               <BiCategoryAlt className='text-sm mr-1' />
-              <span className=''>{categories[0]}</span>
+              <span className=''>{categories[0].title}</span>
             </div>
           )}
         </div>
