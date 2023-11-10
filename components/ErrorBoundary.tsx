@@ -3,8 +3,9 @@
 import { ErrorBoundary as ErrorBoundaryLib } from 'react-error-boundary'
 import type { FC, PropsWithChildren } from 'react'
 import { Button } from '@nextui-org/button'
-import { ErrorIcon } from './icons/ErrorIcon'
+
 import { IconProps } from './icons'
+import ErrorIcon from './icons/ErrrorIcon'
 
 const Noop = () => null
 
