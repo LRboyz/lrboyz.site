@@ -3,6 +3,7 @@ import { Post } from '~/sanity/schemas/post'
 import { BiTime, BiCategoryAlt, BiSolidTime, BiSolidCommentDots, BiHeart } from 'react-icons/bi'
 import Image from 'next/image'
 import { BsFillEyeFill } from 'react-icons/bs'
+import { Suspense } from 'react'
 
 export interface PostItemProps {
   post: Post
@@ -10,7 +11,7 @@ export interface PostItemProps {
 }
 
 export function PostCard({ post, view }: PostItemProps) {
-  const { mainImage, title, description, slug, categories } = post
+  const { mainImage, title, description, slug, categories, _id } = post
 
   return (
     <div
@@ -24,7 +25,19 @@ export function PostCard({ post, view }: PostItemProps) {
       }
     >
       {/* <div className='absolute -right-5 top-0 text-xs bg-sky-600 w-16 text-center transform rotate-45'>原创</div> */}
-
+      <div className={`w-40 mr-2 h-full hidden md:block lg:block overflow-hidden  `}>
+        <div className='w-full h-full relative'>
+          <Image
+            src={mainImage.asset.url}
+            alt=''
+            className='object-cover rounded-md absolute'
+            placeholder='blur'
+            blurDataURL={mainImage.asset.lqip}
+            priority
+            fill
+          />
+        </div>
+      </div>
       <Link
         className='flex-1 mx-2 flex flex-col relative no-underline text-stone-400 dark:hover:text-stone-300'
         href={`/posts/${slug}`}
@@ -39,7 +52,9 @@ export function PostCard({ post, view }: PostItemProps) {
 
           <div className='flex items-center px-2 rounded-l transition duration-150 hover:underline'>
             <BsFillEyeFill className='mr-1 w-3' />
-            <span className=''>{view ?? 0}</span>
+            <Suspense fallback={<>Loading...</>}>
+              <span className=''>{view ?? 0}</span>
+            </Suspense>
           </div>
           <div className='flex items-center  px-2 rounded-lgtransition duration-150 hover:underline'>
             <BiSolidCommentDots className='mr-1 w-3' />
@@ -57,19 +72,6 @@ export function PostCard({ post, view }: PostItemProps) {
           )}
         </div>
       </Link>
-      <div className={`w-40 mr-2 h-full hidden md:block lg:block overflow-hidden  `}>
-        <div className='w-full h-full relative'>
-          <Image
-            src={mainImage.asset.url}
-            alt=''
-            className='object-cover rounded-md absolute'
-            placeholder='blur'
-            blurDataURL={mainImage.asset.lqip}
-            priority
-            fill
-          />
-        </div>
-      </div>
     </div>
   )
 }

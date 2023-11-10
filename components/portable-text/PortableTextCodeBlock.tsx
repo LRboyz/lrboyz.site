@@ -6,10 +6,7 @@ import React from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { ClipboardCheckIcon } from '~/components/icons/ClipboardCheckIcon'
 import { ClipboardDataIcon } from '~/components/icons/ClipboardDataIcon'
-
 import { ClientOnly } from '~/components/ClientOnly'
-// import { Commentable } from '~/components/Commentable'
-// import { ElegantTooltip } from '~/components/ui/Tooltip'
 
 export function PortableTextCodeBlock({
   value
@@ -79,6 +76,7 @@ export function PortableTextCodeBlock({
               style: {},
               className: `language-${value.language}`
             }}
+            // style={docco}
           >
             {value.code}
           </SyntaxHighlighter>

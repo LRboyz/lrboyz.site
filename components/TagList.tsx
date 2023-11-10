@@ -37,7 +37,7 @@ export default async function TagList({}: TagListProps) {
 
               return (
                 <Link
-                  href={`/tag?slug=${tag.slug.current}`}
+                  href={`/?tag=${tag.slug.current}`}
                   key={tag._id}
                   className={clsx(
                     'flex items-center border px-2 dark:border-zinc-600 dark:hover:border-zinc-400 rounded-md hover:shadow-md transition-all duration-150 cursor-pointer',

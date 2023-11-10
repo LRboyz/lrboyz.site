@@ -58,7 +58,7 @@ const itemVariants = {
   }
 } satisfies Variants
 
-export function BlogPostTableOfContents({ headings }: { headings: Node[] }) {
+export function PostTableOfContents({ headings }: { headings: Node[] }) {
   const outline = parseOutline(headings)
   const { scrollY } = useScroll()
   const [highlightedHeadingId, setHighlightedHeadingId] = React.useState<string | null>(null)
@@ -66,6 +66,7 @@ export function BlogPostTableOfContents({ headings }: { headings: Node[] }) {
   React.useEffect(() => {
     const handleScroll = () => {
       const articleElement = document.querySelector<HTMLElement>('article[data-postid]')
+
       const outlineYs = outline.map(node => {
         const el = document.querySelector<HTMLAnchorElement>(`article ${node.style}:where([id="${node.id}"]) > a`)
         if (!el) return 0
@@ -99,27 +100,29 @@ export function BlogPostTableOfContents({ headings }: { headings: Node[] }) {
       initial='hidden'
       animate='visible'
       variants={listVariants}
-      className='group pointer-events-auto flex flex-col space-y-2 text-zinc-500'
+      className='group pointer-events-auto flex flex-col space-y-2 text-zinc-400'
     >
-      {outline.map(node => (
-        <motion.li
-          key={node.id}
-          variants={itemVariants}
-          className={clsx(
-            'text-[12px] font-medium leading-[18px] transition-colors duration-300',
-            node.style === 'h3' && 'ml-1',
-            node.style === 'h4' && 'ml-2',
-            node.id === highlightedHeadingId
-              ? 'text-zinc-900 dark:text-zinc-200'
-              : 'hover:text-zinc-700 dark:hover:text-zinc-400 group-hover:[&:not(:hover)]:text-zinc-400 dark:group-hover:[&:not(:hover)]:text-zinc-600'
-          )}
-          aria-label={node.id === highlightedHeadingId ? '当前位置' : undefined}
-        >
-          <a href={`#${node.id}`} className='block w-full'>
-            {node.text}
-          </a>
-        </motion.li>
-      ))}
+      {outline.map(node => {
+        return (
+          <motion.li
+            key={node.id}
+            variants={itemVariants}
+            className={clsx(
+              'text-[12px] font-medium leading-[18px] transition-colors duration-300',
+              node.style === 'h3' && 'ml-1',
+              node.style === 'h4' && 'ml-2',
+              node.id === highlightedHeadingId
+                ? 'text-zinc-900 dark:text-zinc-200'
+                : 'hover:text-zinc-700 dark:hover:text-zinc-400 group-hover:[&:not(:hover)]:text-zinc-400 dark:group-hover:[&:not(:hover)]:text-zinc-600'
+            )}
+            aria-label={node.id === highlightedHeadingId ? '当前位置' : undefined}
+          >
+            <a href={`#${node.id}`} className='block w-full'>
+              {node.text}
+            </a>
+          </motion.li>
+        )
+      })}
     </motion.ul>
   )
 }

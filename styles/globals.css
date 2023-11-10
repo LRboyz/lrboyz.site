@@ -2,12 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/* @font-face {
   font-family: 'shark';
-  src: url('../public/fonts/shark.ttf') format('truetype');
+  src: url('https://lrboyz-1259094485.cos.ap-guangzhou.myqcloud.com/shark.ttf') format('truetype');
   font-style: normal;
   font-display: swap;
   letter-spacing: 5em;
+}
+
+@font-face {
+  font-family: 'song';
+  src: url('https://lrboyz-1259094485.cos.ap-guangzhou.myqcloud.com/song.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+  letter-spacing: 5em;
+} */
+html,
+body {
+  text-rendering: optimizeLegibility;
+  background-color: var(--bg-color);
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
 }
 
 .link > a:hover {

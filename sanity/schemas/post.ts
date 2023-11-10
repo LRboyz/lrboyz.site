@@ -1,8 +1,6 @@
 import { defineField, defineType } from 'sanity'
 import { PencilSwooshIcon } from '~/components/icons/PencliSwooshIcon'
 import { readingTimeType } from './types/ReadingTimeInput'
-import { Category } from './category'
-import { Tag } from './tag'
 
 export type Post = {
   _id: string
@@ -21,8 +19,8 @@ export type Post = {
   }
   publishedAt: string
   description: string
-  categories: Category[]
-  tags: Tag[]
+  categories: string[]
+  tags: string[]
   body: any
   readingTime: number
 }

@@ -10,13 +10,13 @@ export type GetPostParams = {
   tag?: string | string[]
   page?: number
 }
-export type dataMeta = {
+export type Paginate = {
   total: number
 }
 
 export type formatData<T> = {
   data: T
-  meta: dataMeta
+  paginate: Paginate
 }
 
 export type bannerType = {
@@ -61,7 +61,7 @@ export const fetchPosts = async ({ offset = 0, limit = 5 }: GetPostParams) =>
         }
       },
     },
-    "meta":{
+    "paginate":{
       "total":count(*[_type == "post" && !(_id in path("drafts.**"))] )
     }
     }
@@ -91,7 +91,7 @@ export const fetchPostsByTag = async ({ offset = 0, limit = 5, tag }: GetPostPar
         }
       },
     },
-    "meta":{
+    "paginate":{
       "total":count(*[_type == "post" && $tag in tags[]->slug.current && !(_id in path("drafts.**"))] )
     }
     }

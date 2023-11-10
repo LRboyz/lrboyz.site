@@ -4,8 +4,7 @@
 const nextConfig = {
   reactStrictMode: false, // Recommended for the `pages` directory, default in `app`.
   experimental: {
-    appDir: true,
-    serverActions: true
+    appDir: true
   },
   images: {
     domains: ['cdn.sanity.io']

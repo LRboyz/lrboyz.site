@@ -1,11 +1,22 @@
 'use client'
+
+import './post.css'
 import { PostPortableText } from '~/components/PostPortableText'
 import { Prose } from '~/components/Prose'
 import { PostDetail } from '~/sanity/schemas/post'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { BiFont, BiTime } from 'react-icons/bi'
+import { BiTime } from 'react-icons/bi'
 import { TbEye } from 'react-icons/tb'
+// import { useEffect } from 'react'
+// import { usePostStore } from '~/store/post'
+import { LuTimer } from 'react-icons/lu'
+import Image from 'next/image'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import dayjs from 'dayjs'
+import { useEffect } from 'react'
+import { usePostStore } from '~/store/post'
+
+dayjs.extend(relativeTime)
 
 interface PostDetailProps {
   post: PostDetail
@@ -13,13 +24,20 @@ interface PostDetailProps {
 }
 
 export default function PostDetailPage({ post, views }: PostDetailProps) {
-  const { body, mainImage, title, readingTime, publishedAt, headings } = post
+  const { body, mainImage, title, readingTime, publishedAt, categories } = post
+  const { setCurrPost } = usePostStore()
+
+  useEffect(() => {
+    setCurrPost(post)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
-    <div className={`relative`}>
-      <article className=' border-b'>
-        <header className='relative flex flex-col items-center'>
+    <>
+      <article data-postid={post._id} className=' border-b'>
+        <header className='flex flex-col items-center'>
           <motion.div
-            className='relative  w-full text-center mb-4'
+            className='w-full mb-4 text-center '
             initial={{ opacity: 0, scale: 0.96, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{
@@ -29,18 +47,22 @@ export default function PostDetailPage({ post, views }: PostDetailProps) {
               damping: 20
             }}
           >
-            <h2 className='text-xl font-bold'>{title}</h2>
-            <div className='flex gap-2 text-xs w-full justify-center my-2 font-sans text-[#9e9e9e]'>
-              <div className='flex items-center'>
-                <BiFont className='mr-1' />共 13245 字, 需要阅读{readingTime}分钟
-              </div>
-              <div className='flex items-center'>
+            <h1 className='text-2xl font-bold'>{title}</h1>
+            <div className='flex  gap-4 text-xs  my-4 font-sans text-[#9e9e9e] justify-center'>
+              <p className='flex items-center'>
+                <TbEye className='mr-1' /> 共{views}
+                次阅读
+              </p>
+              <p className='flex items-center'>
+                <LuTimer />
+                <span className='ml-1'>约{readingTime?.toFixed(0) ?? 0}分钟阅读</span>
+              </p>
+              <p className='flex items-center'>
                 <BiTime className='mr-1' />
-                发布于3天前
-              </div>
-              <div className='flex items-center'>
-                <TbEye className='mr-1' /> 共{views}次阅读
-              </div>
+                发布于 {dayjs(publishedAt).format('YYYY-MM-DD')}&nbsp;
+                {dayjs(publishedAt).hour() > 11 ? '上午' : '下午'}
+              </p>
+              <p className='flex items-center'>{`# ${categories[0]}`}</p>
             </div>
           </motion.div>
           <motion.div
@@ -69,7 +91,6 @@ export default function PostDetailPage({ post, views }: PostDetailProps) {
           <PostPortableText value={body} />
         </Prose>
       </article>
-      <div></div>
-    </div>
+    </>
   )
 }

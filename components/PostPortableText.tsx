@@ -14,6 +14,7 @@ import {
 } from '~/components/portable-text/PortableTextBlocks'
 import { PortableTextCodeBlock } from './portable-text/PortableTextCodeBlock'
 import Link from 'next/link'
+import { PortableTextImage } from './portable-text/PortableTextImage'
 
 const components: PortableTextComponents = {
   block: {
@@ -26,7 +27,7 @@ const components: PortableTextComponents = {
   },
   listItem: PortableTextBlocksListItem,
   types: {
-    // image: PortableTextImage,
+    image: PortableTextImage,
     // tweet: PortableTextTweet,
     codeBlock: PortableTextCodeBlock
   },

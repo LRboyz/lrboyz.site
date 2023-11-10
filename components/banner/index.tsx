@@ -9,7 +9,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
-
+import { motion } from 'framer-motion'
 import { Post } from '~/sanity/schemas/post'
 
 interface BannerSliderProps {
@@ -44,7 +44,14 @@ export default function BannerList({ posts }: BannerSliderProps) {
   }, [posts])
 
   return (
-    <div className='w-full mb-2 rounded-md overflow-hidden relative min-h-[200px] shadow-md'>
+    <div className=' mb-2 rounded-md overflow-hidden relative min-h-[200px] shadow-md'>
+      {/* <motion.div
+        key={Math.random()}
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -10, opacity: 0 }}
+        transition={{ duration: 0.2 }}
+      > */}
       <Swiper {...sliderSettings}>
         {slides.map(slide => (
           <SwiperSlide style={{ ...slideStyles }} key={slide._id} className='transition-all duration-50'>
@@ -67,6 +74,7 @@ export default function BannerList({ posts }: BannerSliderProps) {
           </SwiperSlide>
         ))}
       </Swiper>
+      {/* </motion.div> */}
     </div>
   )
 }
