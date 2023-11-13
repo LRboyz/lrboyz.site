@@ -1,7 +1,7 @@
 'use client'
 import Logo from '~/components/Logo'
 import { ThemeSelector } from './ThemeSelector'
-import { LocaleSelector } from './LocaleSelector'
+// import { LocaleSelector } from './LocaleSelector'
 import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
 import React from 'react'
@@ -29,7 +29,7 @@ export default function Header() {
             className='flex gap-2 items-center'
           >
             <ThemeSelector />
-            <LocaleSelector />
+            {/* <LocaleSelector /> */}
             {/* <UserInfo /> */}
           </motion.div>
         </div>

@@ -2,7 +2,7 @@
 
 import { clsx } from 'clsx'
 import { motion } from 'framer-motion'
-import { useTranslations } from 'next-intl'
+
 import React from 'react'
 import { BsGithub, BsTwitter } from 'react-icons/bs'
 import { SiAboutdotme } from 'react-icons/si'
@@ -34,7 +34,6 @@ const social = [
 interface NavProps {}
 
 export function Nav({}: NavProps) {
-  const t = useTranslations('Root.Metadata')
   // const { currPost, isPostDetail } = usePostStore()
 
   return (
@@ -42,7 +41,7 @@ export function Nav({}: NavProps) {
       <motion.div className='sticky top-10 ' layout layoutRoot>
         <Link
           href='/'
-          aria-label={t('Title')}
+          aria-label={''}
           className='group relative mb-3 ml-3 inline-flex focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-200 dark:focus-visible:ring-stone-700 dark:focus-visible:ring-offset-stone-800 md:mb-6'
         >
           <motion.span

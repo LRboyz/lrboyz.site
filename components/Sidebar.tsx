@@ -3,7 +3,7 @@ import TagList from './TagList'
 import { SearchPost } from './SearchPost'
 import HotPostList from './HotPostList'
 import Analysis from './Analysis'
-import TableOfContents from './TableOfContents'
+// import TableOfContents from './TableOfContents'
 
 interface SideBarProps {
   className?: string

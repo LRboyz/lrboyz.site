@@ -1,7 +1,6 @@
 'use client'
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
-import { useTranslations } from 'next-intl'
 import { TbCamera, TbPlanet, TbMoodHappy } from 'react-icons/tb'
 import { SiAboutdotme } from 'react-icons/si'
 import React, { ComponentProps } from 'react'
@@ -9,25 +8,23 @@ import React, { ComponentProps } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
-import { usePathname } from 'next-intl/client'
+import { usePathname } from 'next/navigation'
 
 const links = [
-  { href: '/', label: 'Home', icon: TbPlanet },
-  { href: '/life', label: 'Life', icon: TbMoodHappy },
-  { href: '/photography', label: 'Photography', icon: TbCamera },
-  { href: '/about', label: 'About', icon: SiAboutdotme }
+  { href: '/', label: '主页', icon: TbPlanet },
+  { href: '/life', label: '生活', icon: TbMoodHappy },
+  { href: '/photography', label: '瞬间', icon: TbCamera },
+  { href: '/about', label: '关于我', icon: SiAboutdotme }
 ]
 
 export function NavMenu() {
-  const t = useTranslations('NavMenu')
-
   return (
     <NavigationMenu.Root className='relative z-50 -ml-4 md:ml-0' orientation='vertical'>
       <NavigationMenu.List className='m-0 flex scroll-pr-6 list-none flex-wrap items-center overflow-scroll px-4 py-1.5 md:scroll-p-0 md:flex-col md:items-start md:overflow-visible md:px-0 md:py-0'>
         {links.map(({ href, label, icon: Icon }) => (
-          <MenuLink key={label} href={href} label={t(label as any)}>
+          <MenuLink key={label} href={href} label={label}>
             <Icon className='stroke-curren mr-2 h-5 w-5' />
-            <span className='tracking-widest'>{t(label as any)}</span>
+            <span className='tracking-widest'>{label}</span>
           </MenuLink>
         ))}
       </NavigationMenu.List>
