@@ -2,11 +2,11 @@
 
 import { useRouterQuery } from '~/lib/hooks/useRouterQuery'
 import { usePostStore } from '~/store/post'
-import { PostList } from '../../../components/post/PostList'
 import { kvKeys } from '~/config/app.config'
 import { useEffect, useState } from 'react'
 import { EmptyIcon } from '~/components/icons/Empty.Icon'
 import HomeLayout from '../(home)/layout'
+import { PostList } from '~/components/post/PostList'
 // import { fetchViews } from '../action'
 
 export default function PostByTagPage() {
